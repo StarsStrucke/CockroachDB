@@ -5,6 +5,6 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <ItemGroup>
-    <SourceRoot Include = " $(MSBuildThisFileDirectory)/ " />
+    <SourceRoot Include=" $(MSBuildThisFileDirectory)/ " />
   </ItemGroup>
 </Project>

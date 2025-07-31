@@ -1,5 +1,5 @@
 <Project>
-    <UsingTask TaskName="SetEnvVar" TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)/Microsoft.Build.Tasks.Core.dll" >
+    <UsingTask TaskName="SetEnvVar" TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)/Microsoft.Build.Tasks.Core.dll">
         <ParameterGroup>
             <EnvName ParameterType="System.String" Required="true" />
             <EnvValue ParameterType="System.String" Required="true" />
@@ -18,7 +18,7 @@
         When VSTestNoBuild is not true, then VSTest has inititiated the build so the SetShouldlyPathMaps target has already started,
         so we need to set the SHOULDLY_SOURCE_PATH_MAP environment variable here.
     -->
-    <Target Name="CapturePathMapsForShouldly" BeforeTargets="CoreCompile" DependsOnTargets="_SetPathMapFromSourceRoots" Condition=" '$(DisableShouldlyPathMaps)' != 'true' AND '$(DeterministicSourcePaths)' == 'true' " >
+    <Target Name="CapturePathMapsForShouldly" BeforeTargets="CoreCompile" DependsOnTargets="_SetPathMapFromSourceRoots" Condition=" '$(DisableShouldlyPathMaps)' != 'true' AND '$(DeterministicSourcePaths)' == 'true' ">
         <PropertyGroup>
             <_ShouldlyPathMapsFilePath>$([MSBuild]::EnsureTrailingSlash('$(OutputPath)'))ShouldlyPathMaps_$(AssemblyName)</_ShouldlyPathMapsFilePath>
         </PropertyGroup>
